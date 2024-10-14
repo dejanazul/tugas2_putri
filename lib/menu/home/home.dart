@@ -10,13 +10,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFBF8F4),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFFBF8F4),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        title: const Text('Home Page'),
-      ),
       body: Center(
         child: SizedBox(
           height: 400,

@@ -38,24 +38,33 @@ class SitusPage extends StatelessWidget {
                       style: TextStyle(color: Color(0xffFBF8F4), fontSize: 12),
                     ),
                   ),
-                  Expanded(
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            shape: WidgetStatePropertyAll(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
+                  Row(
+                    children: [
+                      const SizedBox(
+                        width: 50,
+                        child: Icon(
+                          Icons.favorite_border,
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 135,
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              shape: WidgetStatePropertyAll(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                               ),
+                              backgroundColor: const WidgetStatePropertyAll(
+                                  Color(0xff774C18)),
+                              foregroundColor: const WidgetStatePropertyAll(
+                                  Color(0xffFBF8F4)),
                             ),
-                            backgroundColor:
-                                const WidgetStatePropertyAll(Color(0xff774C18)),
-                            foregroundColor:
-                                const WidgetStatePropertyAll(Color(0xffFBF8F4)),
-                          ),
-                          child: const Text('Google Maps')),
-                    ),
+                            child: const Text('Google Maps')),
+                      ),
+                    ],
                   )
                 ],
               ),
