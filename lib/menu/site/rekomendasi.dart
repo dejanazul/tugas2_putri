@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get/instance_manager.dart';
-import 'package:tugas2_putri/menu/favorite/controllers/favorite_controller.dart';
 import 'package:tugas2_putri/menu/site/sitemodel.dart';
 
-class SitusPage extends StatelessWidget {
-  final FavoriteController favoriteController = Get.find();
+class SitusPage extends StatefulWidget {
+  const SitusPage({super.key});
 
-  SitusPage({super.key}) {
-    // Initialize the favorites list with the same length as rekomendasiList
-    favoriteController.initializeFavorites(rekomendasiList.length);
-  }
+  @override
+  State<SitusPage> createState() => _SitusPageState();
+}
 
+class _SitusPageState extends State<SitusPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,30 +55,29 @@ class SitusPage extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 50,
-                        child: Obx(() {
-                          return IconButton(
-                            onPressed: () {
-                              favoriteController.toggleFavorite(index);
-                            },
-                            icon: favoriteController.isFavorited(index)
-                                ? const Icon(
-                                    Icons.favorite,
-                                    color: Colors.red,
-                                  )
-                                : const Icon(
-                                    Icons.favorite_border_outlined,
-                                  ),
-                            color: Colors.white,
-                          );
-                        }),
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              wisata.favorited = !wisata.favorited;
+                            });
+                          },
+                          icon: wisata.favorited
+                              ? const Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                )
+                              : const Icon(
+                                  Icons.favorite_border_outlined,
+                                ),
+                          color: Colors.white,
+                        ),
                       ),
                       SizedBox(
                         width: 135,
                         child: ElevatedButton(
                             onPressed: () {},
                             style: ButtonStyle(
-                              // ignore: deprecated_member_use
-                              shape: MaterialStatePropertyAll(
+                              shape: WidgetStatePropertyAll(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
