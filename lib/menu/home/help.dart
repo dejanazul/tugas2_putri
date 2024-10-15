@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:tugas2_putri/auth/login/controllers/login_controller.dart';
 
 class HelpPage extends StatelessWidget {
   const HelpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController = Get.find();
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFFBF8F4),
+      ),
       backgroundColor: const Color(0xFFFBF8F4),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22.0),
@@ -62,7 +67,9 @@ class HelpPage extends StatelessWidget {
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    loginController.signOut();
+                  },
                   style: const ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(
                           Color.fromARGB(255, 181, 47, 37)),
