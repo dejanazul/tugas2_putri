@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas2_putri/menu/favorite/screens/favorited.dart';
 import 'package:tugas2_putri/menu/kelompok/daftaranggota.dart';
-import 'package:tugas2_putri/menu/site/rekomendasi.dart';
 import 'package:tugas2_putri/menu/stopwatch/stopwatch.dart';
 
 class HomePage extends StatelessWidget {
@@ -80,12 +78,7 @@ class HomePage extends StatelessWidget {
                               foregroundColor:
                                   WidgetStatePropertyAll(Color(0xffFBF8F4)),
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SitusPage()));
-                            },
+                            onPressed: () {},
                             child: const Text('Situs Rekomendasi'))),
 
                     // Favorite
@@ -98,13 +91,7 @@ class HomePage extends StatelessWidget {
                               foregroundColor:
                                   WidgetStatePropertyAll(Color(0xffFBF8F4)),
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const FavoritedPage()));
-                            },
+                            onPressed: () {},
                             child: const Text('Favorite'))),
                   ],
                 ),

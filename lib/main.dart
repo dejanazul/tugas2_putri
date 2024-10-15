@@ -5,13 +5,14 @@ import 'package:get/instance_manager.dart';
 import 'package:tugas2_putri/auth/login/controllers/login_controller.dart';
 import 'package:tugas2_putri/auth/login/screens/login.dart';
 import 'package:tugas2_putri/auth/register/controllers/register_controller.dart';
-import 'package:tugas2_putri/menu/favorite/controllers/favorite_controller.dart';
+import 'package:tugas2_putri/firebase_options.dart';
 import 'package:tugas2_putri/repository/auth_repository.dart';
 import 'package:tugas2_putri/repository/user_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then((value) => Get.put(AuthRepository()));
   runApp(const MainApp());
 }
 
@@ -23,12 +24,12 @@ class MainApp extends StatelessWidget {
     //controllers
     Get.lazyPut(() => LoginController(), fenix: true);
     Get.lazyPut(() => RegisterController(), fenix: true);
-    Get.lazyPut(() => FavoriteController(), fenix: true);
 
     //repo
-    Get.lazyPut(() => AuthRepository(), fenix: true);
     Get.lazyPut(() => UserRepository(), fenix: true);
 
-    return const GetMaterialApp(home: LoginPage());
+    return const GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Center(child: CircularProgressIndicator()));
   }
 }

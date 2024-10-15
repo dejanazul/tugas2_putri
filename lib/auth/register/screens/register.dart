@@ -23,7 +23,7 @@ class _SignUpPageState extends State<SignUpPage> {
         backgroundColor: const Color(0xFFFBF8F4),
         body: Center(
           child: SizedBox(
-            height: 450,
+            height: 400,
             width: 350,
             child: Container(
               decoration: const BoxDecoration(
@@ -41,23 +41,6 @@ class _SignUpPageState extends State<SignUpPage> {
                         'Register',
                         style:
                             TextStyle(fontSize: 32, color: Color(0xffFBF8F4)),
-                      ),
-
-                      // Username
-                      TextFormField(
-                        controller: registerController.usernameController,
-                        focusNode: registerController.usernameFocus,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Username can't be empty";
-                          }
-                          return null;
-                        },
-                        style: const TextStyle(color: Colors.white),
-                        decoration: const InputDecoration(
-                            labelStyle: TextStyle(color: Color((0xffFBF8F4))),
-                            labelText: 'Username',
-                            border: OutlineInputBorder()),
                       ),
 
                       // Email
