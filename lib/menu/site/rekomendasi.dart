@@ -6,7 +6,11 @@ import 'package:tugas2_putri/menu/site/sitemodel.dart';
 
 class SitusPage extends StatelessWidget {
   final FavoriteController favoriteController = Get.find();
-  SitusPage({super.key});
+
+  SitusPage({super.key}) {
+    // Initialize the favorites list with the same length as rekomendasiList
+    favoriteController.initializeFavorites(rekomendasiList.length);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,33 +58,30 @@ class SitusPage extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 50,
-                        child: Obx(
-                          () {return IconButton(
+                        child: Obx(() {
+                          return IconButton(
                             onPressed: () {
-                              if (favoriteController.isFavorited.value) {
-                                favoriteController.isFavorited.value = false;
-                              } else {
-                                favoriteController.isFavorited.value = true;
-                              }
+                              favoriteController.toggleFavorite(index);
                             },
-                            icon: favoriteController.isFavorited.value
-                                ? Icon(
+                            icon: favoriteController.isFavorited(index)
+                                ? const Icon(
                                     Icons.favorite,
                                     color: Colors.red,
                                   )
-                                : Icon(
+                                : const Icon(
                                     Icons.favorite_border_outlined,
                                   ),
                             color: Colors.white,
-                          );} 
-                        ),
+                          );
+                        }),
                       ),
                       SizedBox(
                         width: 135,
                         child: ElevatedButton(
                             onPressed: () {},
                             style: ButtonStyle(
-                              shape: WidgetStatePropertyAll(
+                              // ignore: deprecated_member_use
+                              shape: MaterialStatePropertyAll(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
