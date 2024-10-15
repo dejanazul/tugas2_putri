@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                                     size: 20,
                                   )
                                 : const Icon(Icons.visibility, size: 20),
-                            color: Color(0xffFBF8F4),
+                            color: const Color(0xffFBF8F4),
                           ),
                           labelText: 'Password',
                           labelStyle:
