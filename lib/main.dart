@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/instance_manager.dart';
 import 'package:tugas2_putri/auth/login/controllers/login_controller.dart';
-import 'package:tugas2_putri/auth/login/screens/login.dart';
 import 'package:tugas2_putri/auth/register/controllers/register_controller.dart';
 import 'package:tugas2_putri/firebase_options.dart';
 import 'package:tugas2_putri/repository/auth_repository.dart';
