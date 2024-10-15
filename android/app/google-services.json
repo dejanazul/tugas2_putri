@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "335437601733",
+    "project_id": "tugas2-mobile-teori",
+    "storage_bucket": "tugas2-mobile-teori.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335437601733:android:1471d9f56202904ace49ac",
+        "android_client_info": {
+          "package_name": "com.example.tugas2_putri"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuKcwwClaXMSM063tApRqaUChDVHKDCE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
