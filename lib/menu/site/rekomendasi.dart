@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/instance_manager.dart';
+import 'package:tugas2_putri/menu/favorite/controllers/favorite_controller.dart';
+import 'package:tugas2_putri/menu/site/sitemodel.dart';
 
 class SitusPage extends StatelessWidget {
-  const SitusPage({super.key});
+  final FavoriteController favoriteController = Get.find();
+  SitusPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +20,9 @@ class SitusPage extends StatelessWidget {
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 0.7),
-        itemCount: 8,
+        itemCount: rekomendasiList.length,
         itemBuilder: (context, index) {
+          SitusRekomendasi wisata = rekomendasiList[index];
           return Card(
             child: Container(
               decoration: const BoxDecoration(
@@ -24,27 +30,49 @@ class SitusPage extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(12))),
               child: Column(
                 children: [
-                  const SizedBox(
+                  SizedBox(
                       height: 125,
-                      child: Image(image: AssetImage('assets/logo.png'))),
-                  const Text(
-                    'Judul',
-                    style: TextStyle(color: Color(0xffFBF8F4), fontSize: 20),
+                      width: double.infinity,
+                      child: Image(
+                        image: AssetImage(wisata.assetImages),
+                        fit: BoxFit.cover,
+                      )),
+                  Text(
+                    wisata.name,
+                    style:
+                        const TextStyle(color: Color(0xffFBF8F4), fontSize: 20),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 80,
                     child: Text(
-                      'Alamat Alamat Alamat Alamat Alamat Alamat Alamat Alamat Alamat Alamat Alamat Alamat Alamat Alamat Alamat Alamat',
-                      style: TextStyle(color: Color(0xffFBF8F4), fontSize: 12),
+                      wisata.alamat,
+                      style: const TextStyle(
+                          color: Color(0xffFBF8F4), fontSize: 12),
                     ),
                   ),
                   Row(
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         width: 50,
-                        child: Icon(
-                          Icons.favorite_border,
-                          color: Colors.white,
+                        child: Obx(
+                          () {return IconButton(
+                            onPressed: () {
+                              if (favoriteController.isFavorited.value) {
+                                favoriteController.isFavorited.value = false;
+                              } else {
+                                favoriteController.isFavorited.value = true;
+                              }
+                            },
+                            icon: favoriteController.isFavorited.value
+                                ? Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                  )
+                                : Icon(
+                                    Icons.favorite_border_outlined,
+                                  ),
+                            color: Colors.white,
+                          );} 
                         ),
                       ),
                       SizedBox(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas2_putri/menu/favorite/favorited.dart';
+import 'package:tugas2_putri/menu/favorite/screens/favorited.dart';
 import 'package:tugas2_putri/menu/kelompok/daftaranggota.dart';
 import 'package:tugas2_putri/menu/site/rekomendasi.dart';
 import 'package:tugas2_putri/menu/stopwatch/stopwatch.dart';
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const SitusPage()));
+                                      builder: (context) => SitusPage()));
                             },
                             child: const Text('Situs Rekomendasi'))),
 

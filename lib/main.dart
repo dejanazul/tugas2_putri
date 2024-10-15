@@ -5,6 +5,7 @@ import 'package:get/instance_manager.dart';
 import 'package:tugas2_putri/auth/login/controllers/login_controller.dart';
 import 'package:tugas2_putri/auth/login/screens/login.dart';
 import 'package:tugas2_putri/auth/register/controllers/register_controller.dart';
+import 'package:tugas2_putri/menu/favorite/controllers/favorite_controller.dart';
 import 'package:tugas2_putri/repository/auth_repository.dart';
 import 'package:tugas2_putri/repository/user_repository.dart';
 
@@ -22,6 +23,7 @@ class MainApp extends StatelessWidget {
     //controllers
     Get.lazyPut(() => LoginController(), fenix: true);
     Get.lazyPut(() => RegisterController(), fenix: true);
+    Get.lazyPut(() => FavoriteController(), fenix: true);
 
     //repo
     Get.lazyPut(() => AuthRepository(), fenix: true);
